@@ -1,6 +1,8 @@
 package br.mil.ccarj.eavaliacaobq.eavaliacaobq.domain.model;
 import lombok.*;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+
 
 
 @Entity
@@ -15,13 +17,15 @@ public class ModeloAvaliacao {
     @Column(name = "ID_MODELO_AVALIACAO")
     private Long id;
 
-    @Column(name = "NM_MODELO_AVALIACAO", nullable = false)
+    @NotBlank
+    @Column(name = "NM_MODELO_AVALIACAO")
     private String nome;
 
-    @Column(name = "SG_MODELO_AVALIACAO", nullable = false)
+    @NotBlank
+    @Column(name = "SG_MODELO_AVALIACAO")
     private String sigla;
 
-    @Column(name = "DC_MODELO_AVALIACAO", nullable = false)
+    @Column(name = "DC_MODELO_AVALIACAO")
     private String descricao;
 
 }

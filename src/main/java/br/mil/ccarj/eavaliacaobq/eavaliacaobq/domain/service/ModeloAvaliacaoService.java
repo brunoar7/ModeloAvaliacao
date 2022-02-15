@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ModeloAvaliacaoService {
@@ -13,14 +14,15 @@ public class ModeloAvaliacaoService {
     @Autowired
     private ModeloAvaliacaoRepository modeloAvaliacaoRepository;
 
-    public void salvar(ModeloAvaliacao modeloAvaliacao) throws Exception {
-        modeloAvaliacaoRepository.save(modeloAvaliacao);
+    public ModeloAvaliacao salvar(ModeloAvaliacao modeloAvaliacao) throws Exception {
+        return  modeloAvaliacaoRepository.save(modeloAvaliacao);
     }
-    public void atualizar( ModeloAvaliacao modeloAvaliacao) throws Exception {
+    public ModeloAvaliacao atualizar( ModeloAvaliacao modeloAvaliacao) throws Exception {
         modeloAvaliacaoRepository.save(modeloAvaliacao);
+        return modeloAvaliacao;
     }
-    public void excluir(ModeloAvaliacao modeloAvaliacao) throws Exception {
-        modeloAvaliacaoRepository.delete(modeloAvaliacao);
+    public void excluir(Long id) throws Exception {
+        modeloAvaliacaoRepository.deleteById(id);
     }
     public List<ModeloAvaliacao> listarTodos() throws Exception {
         return modeloAvaliacaoRepository.findAll();
