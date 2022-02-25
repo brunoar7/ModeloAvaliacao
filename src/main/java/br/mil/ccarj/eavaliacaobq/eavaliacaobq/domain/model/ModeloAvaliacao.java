@@ -1,18 +1,21 @@
 package br.mil.ccarj.eavaliacaobq.eavaliacaobq.domain.model;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 
-
-@Entity
-@Table(name = "T_MODELO_AVALIACAO", schema="public")
+@Entity                                                //Uso o entity para mapear uma classe no banco de dados
+@Table( name = "T_MODELO_AVALIACAO", schema="public")
 @NoArgsConstructor
-@AllArgsConstructor
-@Data
+@AllArgsConstructor                                   //construtores
+@Getter
+@Setter
 public class ModeloAvaliacao {
 
-    @Id
+    @Id                                              //marca como chave primaria do  banco de dados
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_MODELO_AVALIACAO")
     private Long id;
@@ -28,4 +31,7 @@ public class ModeloAvaliacao {
     @Column(name = "DC_MODELO_AVALIACAO")
     private String descricao;
 
-}
+    }
+
+
+
