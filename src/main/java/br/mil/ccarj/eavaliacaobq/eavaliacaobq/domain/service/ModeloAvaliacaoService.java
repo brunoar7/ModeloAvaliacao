@@ -61,8 +61,12 @@ public class ModeloAvaliacaoService {
                 .collect(Collectors.toList());
     }
 
-    public ModeloAvaliacaoDto buscaPorId(Long id) throws Exception {
-        return modelMapper.map(modeloAvaliacaoRepository.findById(id).get(), ModeloAvaliacaoDto.class);
+    public  Optional<ModeloAvaliacaoDto>  buscarPorId(Long id) throws Exception {
+        Optional<ModeloAvaliacao> modeloAvaliacao = modeloAvaliacaoRepository.findById(id);
+        if(modeloAvaliacao.isPresent()){
+            return  modelMapper.map(modeloAvaliacao, Optional.class);
+        }
+        return Optional.empty();
     }
 
 
